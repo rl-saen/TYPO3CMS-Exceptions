@@ -13,3 +13,15 @@ This happens when an action method requires a parameter (e.g. domain
 object), but the POST request did not contain that data.
 
 This may happen when a form is submitted without filling any values.
+
+
+TYPO3 9.5: Extension name with underscores in view helper f:uri.action
+======================================================================
+
+To me this happened, when I accidently wrote the extension name with 
+underscores in this view helper::
+
+   {f:uri.action(action: 'showByUid', controller: 'Content',
+                        pluginName: 'ajaxloader', pageType: '12345',
+                        extensionName: 'my_extension',
+                        arguments: '{uid:child.data.uid}', addQueryString:'1')}
