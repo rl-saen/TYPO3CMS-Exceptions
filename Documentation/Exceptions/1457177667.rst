@@ -8,17 +8,21 @@ TYPO3 Exception 1457177667
 
 
 ..
-   [TYPO3 version] - [Date of solution]
+   LTS 10.4.18 - 2021.08.06
    ====================================
 
    Situation
    ---------
 
-   Describe everything to understand the situation: Systems, environment, versions.
-   What happened?
+   When trying to parse a TYPO3 link to a confirmation
+   page the expection was thrown in TYPO3\CMS\Core\LinkHandling\Linkservice->resolveByStringRepresentation().
 
    Solution
    --------
-
-   1. Did you find a solution?
-   2. Explain what you did ..
+   
+   The string handed to the method was not a proper 
+   t3:// link (i.e. t3://page?uid=1) but just the id as 
+   string (so '1').
+   
+   Likely cause for me was an improper DB update when
+   updating to LTS 10.
